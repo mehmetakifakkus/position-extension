@@ -25,9 +25,9 @@ namespace Position {
     //% block
     export function getPos(pos: Position,  e:PosEnum): number {
         if(e == 1)
-            return pos.row * 16;
-        else
             return pos.col * 16;
+        else
+            return pos.row * 16;
     }
 
     //% block
@@ -37,7 +37,7 @@ namespace Position {
 
     //% block
     export function right(pos:Position): void{
-        pos._col += -1;
+        pos._col += 1;
     }
 
     //% block
