@@ -100,25 +100,6 @@ namespace Position {
 
 namespace Rotate{
 
-
-export class RotateSprite{
-    public sprite:Sprite;
-
-    constructor(sp: Sprite){
-        this.sprite = sp;
-    }
-
-    public setSprite(sp: Sprite){
-        this.sprite = sp;
-    }
-
-}
-    //%blockId=spritesetforrotation block="set %sprite(mySprite)"
-    export function initRotation(sprite: Sprite){
-        new RotateSprite(sprite)
-
-    }
-
     //% blockId=imagerotate block="set %img=screen_image_picker angle to %angle_"
     export function rotateNormal(img: Image, angle_: number): Image {
 
@@ -145,6 +126,5 @@ export class RotateSprite{
             }
         }
         return rotated;
-        //sprite.setImage(rotated);
     } 
 }
