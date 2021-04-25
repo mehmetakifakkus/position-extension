@@ -44,13 +44,13 @@ namespace Position {
     //% block
     export function advance(pos:Position, directon: DirEnum): void{
         if(directon == 0)
-            pos._row += -1;
+            pos._row = Math.max(0, pos._row-1);
         else if(directon == 1)
-            pos._col += 1;
+            pos._col = Math.min(16, pos._col+1);
         else if(directon == 2)
-            pos._row += 1;
+            pos._row = Math.min(16, pos._row+1);
         else if(directon == 3)
-            pos._col += -1;
+            pos._col = Math.max(0, pos._col-1);
     }
 
     /**
