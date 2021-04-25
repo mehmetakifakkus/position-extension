@@ -48,9 +48,9 @@ namespace Position {
         else if(directon == 1)
             pos._col += 1;
         else if(directon == 2)
-            pos._col -= 1;
-        else if(directon == 3)
             pos._row += 1;
+        else if(directon == 3)
+            pos._col -= 1;
     }
 
     //% block
