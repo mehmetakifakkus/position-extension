@@ -101,10 +101,9 @@ namespace Position {
 namespace Rotate{
 
     //% block
-    export function rotateNormal(sprite: Sprite, angle_: number): Image {
+    export function rotateNormal(original: Image, angle_: number): Image {
 
     const angle = Math.PI * angle_ / 180; 
-    const original: Image = sprite.image;
     let rotated: Image = image.create(original.width, original.height);
 
     const centerX = rotated.width >> 1;
