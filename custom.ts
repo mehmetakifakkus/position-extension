@@ -30,15 +30,22 @@ namespace Position {
             return pos.col * 16;
     }
 
+    //% block
     export function up(pos:Position): void{
         pos._row += -1;
     }
+
+    //% block
     export function right(pos:Position): void{
         pos._col += -1;
     }
+
+    //% block
     export function left(pos:Position): void{
         pos._col += -1;
     }
+
+    //% block
     export function down(pos:Position): void{
         pos._row += 1;
     }
