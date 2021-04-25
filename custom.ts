@@ -117,3 +117,34 @@ namespace Position {
 
     }
 }
+
+namespace Rotate{
+
+    //% block
+    export function rotateNormal(sprite: Sprite, angle: number) {
+
+    const original: Image = sprite.image;
+    let rotated: Image = image.create(original.width, original.height);
+
+    const centerX = rotated.width >> 1;
+    const centerY = rotated.height >> 1;
+
+    for (let x = 0; x < rotated.width; x++) {
+        for (let y = 0; y < rotated.height; y++) {
+            let dir = Math.atan2(y - centerY, x - centerX);
+            let mag = Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2);
+
+            dir = dir - angle;
+
+            let origX = Math.round((centerX) + mag * Math.cos(dir));
+            let origY = Math.round((centerY) + mag * Math.sin(dir));
+
+            if (origX >= 0 && origX < original.width &&
+                origY >= 0 && origY < original.height) {
+                rotated.setPixel(x, y, original.getPixel(origX, origY));
+            }
+        }
+    }
+    sprite.setImage(rotated);
+} 
+}
