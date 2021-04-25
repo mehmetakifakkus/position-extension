@@ -6,6 +6,17 @@ enum PosEnum {
         Y=2
 }
 
+enum DirEnum {
+    //% block="up"
+    up = 0,
+    //% block="right"
+    right = 1,
+    //% block="down"
+    down = 2,
+    //% block="left"
+    left = 3
+}
+
 namespace Position {
     /**
     * TODO: You can create the position as row and cols
@@ -28,6 +39,18 @@ namespace Position {
             return pos.col * 16;
         else
             return pos.row * 16;
+    }
+
+    //% block
+    export function advance(pos:Position, directon: DirEnum): void{
+        if(directon == 0)
+            pos._row += -1;
+        else if(directon == 1)
+            pos._col += 1;
+        else if(directon == 2)
+            pos._col -= 1;
+        else if(directon == 3)
+            pos._row += 1;
     }
 
     //% block
