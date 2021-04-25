@@ -123,7 +123,7 @@ namespace Rotate{
     //% block
     export function rotateNormal(sprite: Sprite, angle_: number) {
 
-    const angle = 180 * angle_ / Math.PI; 
+    const angle = Math.PI * angle_ / 180; 
     const original: Image = sprite.image;
     let rotated: Image = image.create(original.width, original.height);
 
