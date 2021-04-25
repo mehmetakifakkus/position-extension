@@ -50,27 +50,7 @@ namespace Position {
         else if(directon == 2)
             pos._row += 1;
         else if(directon == 3)
-            pos._col -= 1;
-    }
-
-    //% block
-    export function up(pos:Position): void{
-        pos._row += -1;
-    }
-
-    //% block
-    export function right(pos:Position): void{
-        pos._col += 1;
-    }
-
-    //% block
-    export function left(pos:Position): void{
-        pos._col += -1;
-    }
-
-    //% block
-    export function down(pos:Position): void{
-        pos._row += 1;
+            pos._col += -1;
     }
 
     /**
@@ -121,7 +101,7 @@ namespace Position {
 namespace Rotate{
 
     //% block
-    export function rotateNormal(sprite: Sprite, angle_: number) {
+    export function rotateNormal(sprite: Sprite, angle_: number): Image {
 
     const angle = Math.PI * angle_ / 180; 
     const original: Image = sprite.image;
@@ -146,6 +126,7 @@ namespace Rotate{
             }
         }
     }
-    sprite.setImage(rotated);
+    return rotated;
+    //sprite.setImage(rotated);
 } 
 }
