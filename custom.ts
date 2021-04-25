@@ -25,9 +25,22 @@ namespace Position {
     //% block
     export function getPos(pos: Position,  e:PosEnum): number {
         if(e == 1)
-            return pos.row;
+            return pos.row * 16;
         else
-            return pos.col;
+            return pos.col * 16;
+    }
+
+    export function up(pos:Position): void{
+        pos._row += -1;
+    }
+    export function right(pos:Position): void{
+        pos._col += -1;
+    }
+    export function left(pos:Position): void{
+        pos._col += -1;
+    }
+    export function down(pos:Position): void{
+        pos._row += 1;
     }
 
     /**
@@ -35,8 +48,8 @@ namespace Position {
      **/
     //% blockNamespace=scene color="#401255" blockGap=8
     export class Position {
-        protected _row: number;
-        protected _col: number;
+        public _row: number;
+        public _col: number;
 
         get col() {
             return this._col;
