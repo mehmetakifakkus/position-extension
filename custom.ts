@@ -119,7 +119,7 @@ export class RotateSprite{
 
     }
 
-    //% blockId=imagerotate block="set %img angle to %angle_"
+    //% blockId=imagerotate block="set %img=screen_image_picker angle to %angle_"
     export function rotateNormal(img: Image, angle_: number): Image {
 
         const angle = Math.PI * angle_ / 180; 
