@@ -100,32 +100,51 @@ namespace Position {
 
 namespace Rotate{
 
-    //% block
-    export function rotateNormal(original: Image, angle_: number): Image {
 
-    const angle = Math.PI * angle_ / 180; 
-    let rotated: Image = image.create(original.width, original.height);
+export class RotateSprite{
+    public sprite:Sprite;
 
-    const centerX = rotated.width >> 1;
-    const centerY = rotated.height >> 1;
+    constructor(sp: Sprite){
+        this.sprite = sp;
+    }
 
-    for (let x = 0; x < rotated.width; x++) {
-        for (let y = 0; y < rotated.height; y++) {
-            let dir = Math.atan2(y - centerY, x - centerX);
-            let mag = Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2);
+    public setSprite(sp: Sprite){
+        this.sprite = sp;
+    }
 
-            dir = dir - angle;
+}
+    //%blockId=spritesetforrotation block="set %sprite(mySprite)"
+    export function initRotation(sprite: Sprite){
+        new RotateSprite(sprite)
 
-            let origX = Math.round((centerX) + mag * Math.cos(dir));
-            let origY = Math.round((centerY) + mag * Math.sin(dir));
+    }
 
-            if (origX >= 0 && origX < original.width &&
-                origY >= 0 && origY < original.height) {
-                rotated.setPixel(x, y, original.getPixel(origX, origY));
+    //% blockId=imagerotate block="set %img angle to %angle_"
+    export function rotateNormal(img: Image, angle_: number): Image {
+
+        const angle = Math.PI * angle_ / 180; 
+        let rotated: Image = image.create(img.width, img.height);
+
+        const centerX = rotated.width >> 1;
+        const centerY = rotated.height >> 1;
+
+        for (let x = 0; x < rotated.width; x++) {
+            for (let y = 0; y < rotated.height; y++) {
+                let dir = Math.atan2(y - centerY, x - centerX);
+                let mag = Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2);
+
+                dir = dir - angle;
+
+                let origX = Math.round((centerX) + mag * Math.cos(dir));
+                let origY = Math.round((centerY) + mag * Math.sin(dir));
+
+                if (origX >= 0 && origX < img.width &&
+                    origY >= 0 && origY < img.height) {
+                    rotated.setPixel(x, y, img.getPixel(origX, origY));
+                }
             }
         }
-    }
-    return rotated;
-    //sprite.setImage(rotated);
-} 
+        return rotated;
+        //sprite.setImage(rotated);
+    } 
 }
